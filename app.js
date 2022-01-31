@@ -1,31 +1,19 @@
-var a = 3;
-var b;
-b = a;
-a = 2;
-
-console.log(a,b);
-
-// by reference
-var c = {
-  greeting: 'hi'
-};
-var d;
-
-d = c;
-c.greeting = 'hello';
-console.log(c);
-console.log(d);
-
-
-
-function changeGreeting(obj) {
-  obj.greeting = 'hola';
+function a() {
+console.log(this);
+this.newvariable = 'hello';
 }
 
-changeGreeting(d);
-console.log(c,d);
+var b = function() {
+  console.log(this);
+}
+a();
+console.log(newvariable);
+b();
 
-c = { greeting: 'howdy' };
-
-console.log(c)
-console.log(d);
+var c = {
+  name: 'the c object',
+  log: function() {
+    console.log(this);
+  }
+}
+c.log();
