@@ -1,19 +1,20 @@
-function a() {
-console.log(this);
-this.newvariable = 'hello';
+function greet(firstname, lastname, language) {
+    language = language || 'en';
+    if (language === 'en') {
+      console.log('hello ' + firstname + ' ' + lastname);
+    }
+    if (language === 'es') {
+      console.log('hola ' + firstname + ' ' + lastname);
+    }
 }
 
-var b = function() {
-  console.log(this);
+function greetEnglish(firstname, lastname) {
+  greet(firstname, lastname, 'en');
 }
-a();
-console.log(newvariable);
-b();
 
-var c = {
-  name: 'the c object',
-  log: function() {
-    console.log(this);
-  }
+function greetSpanish(firstname, lastname) {
+  greet(firstname, lastname, 'es');
 }
-c.log();
+
+ greetEnglish('john', 'doe')
+ greetSpanish('john', 'doe')
