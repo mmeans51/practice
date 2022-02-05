@@ -1,23 +1,9 @@
-function greet(name) {
-  console.log('hello ' + name);
+function greet(whattosay) {
+
+  return function(name) {
+    console.log(whattosay + ' ' + name);
+  }
 }
-greet('john');
 
-var greetfunc = function(name) {
-console.log('hello ' + name);
-};
-
-greetfunc('john');
-
-var greeting = function(name)  {
-  return 'hello ' + name;
-  }();
-
-  console.log(greeting)
-
-
-  //------------------------------------
-
-  function (name) {
-    console.log('hello ' + name);
-    };
+ var sayHi = greet('hi');
+ sayHi('tony');
