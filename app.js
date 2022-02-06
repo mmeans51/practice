@@ -1,18 +1,20 @@
-function sayHiLater() {
-  var greeting = 'hi';
-  setTimeout(function() {
-    console.log(greeting);
-  }, 3000);
-}
-sayHiLater();
-
-function tellMeWhenDone(callback) {
-  var a = 1000;
-  var b = 2000;
-
-  callback();
+var person = {
+  firstname: 'john',
+  lastname: 'doe',
+  getFullName: function() {
+    var fullname = this.firstname + ' ' + this.lastname;
+    return fullname;
+  }
 }
 
-tellMeWhenDone(function() {
-  console.log('i am done');
-});
+var logName = function(lang1, lang2) {
+  console.log('logged: ' + this.getFullName());
+  console.log('arguments: ' + lang1 + ' ' + lang2);
+}
+
+var logPersonName = logName.bind(person);
+
+logPersonName();
+
+logName.call(person, 'en', 'es');
+logName.apply(person, ['en', 'es'])
